@@ -1,9 +1,11 @@
-# Functors to the Rescue!
+# Functors to the Rescue
+
 I've recently had the singular pleasure of working with some legacy code written by a team I (thankfully) no longer work with directly. This team had several issues, one of which I'll address in a later post, one I'll discuss today.
 
 Today's issue is that the team was very enamored of new technology, but not overly concerned with readability. This combination produces some quite interesting code. One of the anti-patterns that I see frequently in their code is the use of functors in situations where they only serve to obfuscate the code.
 
 In the example I found, they had a map and wanted to search for a key given a known value. Here's the code the produced:
+
 ```cpp
 typedef map<string, string> PresetMap;
 
