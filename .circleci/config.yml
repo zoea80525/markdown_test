@@ -4,36 +4,10 @@
 #
 version: 2
 jobs:
-  proselint:
-    docker:
+  build:
+    machine:
       # specify the version you desire here
-       - image: circleci/python:3.5.4
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/repo
-
-    steps:
-      - checkout
-
-      - run:
-          name: install dependencies
-          command: |
-            pip install proselint
-
-      # run tests!
-      - run:
-          name: run proselint
-          command: |
-            proselint .
-
-  markdownlint:
-    docker:
-      # specify the version you desire here
-       - image: circleci/ruby:2.4.1-node-browsers
+       image: circleci/classic:latest
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -53,7 +27,7 @@ jobs:
 
       # run tests!
       - run:
-          name: run markdownlint
+          name: run proselint
           command: |
             mdl -g .
             proselint .
